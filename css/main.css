@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,300&display=swap");
+body {
+  background-color: #F0E2A9;
+  box-sizing: border-box;
+}
+
+h1, h2 {
+  color: #43525d;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+
+h2 {
+  padding-left: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.divContenedor {
+  background-color: #8262A3;
+  width: 30%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px auto;
+}
+.divContenedor div {
+  margin: 10px 5px;
+  padding: 5px;
+  background-color: #C59CF0;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.footer__copyright {
+  width: 100%;
+  text-align: center;
+  color: #43525d;
+}
+.footer__copyright p {
+  font-size: 1rem;
+  word-spacing: 2px;
+}
+
+/*# sourceMappingURL=main.css.map */

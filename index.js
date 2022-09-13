@@ -24,3 +24,20 @@ while(salida !== "salir"){
 }
 
 console.log(arrayPersonas)
+
+let inputFilter = prompt("Ingrese persona a buscar")
+let filterPersona = arrayPersonas.filter(filterPersona => filterPersona.nombre === inputFilter);
+
+alert("Se muestra por consola el resultado")
+console.log(filterPersona)
+
+
+
+
+let eliminarPersona = prompt(`Desea eliminar a ${inputFilter} escriba SI`).toLowerCase()
+    if(eliminarPersona === "si"){
+      arrayPersonas.pop(inputFilter)
+    }
+
+console.log(arrayPersonas,"array nuevo")
+

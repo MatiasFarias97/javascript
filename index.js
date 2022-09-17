@@ -1,43 +1,48 @@
-let arrayPersonas = []
+const contenedorPersonas = document.getElementById("contenedorPersonas")
 
-class Personas {
-    constructor(nombre, apellido) {
-        this.nombre = nombre;
-        this.apellido = apellido
+const listaPersonas = [
+    {
+        id: 1,
+        nombre: "Matias",
+        apellido: "Farias",
+        
+    },
+    {
+        id: 2,
+        nombre: "Ruben",
+        apellido: "Ernesto",
+        
+    },
+    {
+        id: 3,
+        nombre: "Gabriela",
+        apellido: "Villarroel",
+    },
+    {
+        id: 4,
+        nombre: "Sofia",
+        apellido: "Belen",
     }
-}
+    
+]
 
-function cargaDeDatos(){
+listaPersonas.forEach((persona)  =>{
+    let column = document.createElement("div")
+    column.className = "col-md-4 mt-3"
+    // column.id = "columna" + producto.id;
+    column.id = `columna-${persona.id}`
+    column.innerHTML = `
+    <div class="card text-white bg-dark mb-3 mx-2"> 
+        <div> 
+            <p class="card-title p-1"> ${persona.nombre} ${persona.apellido}</p>
+        </div>
+    
+    </div>
+    `
+    contenedorPersonas.append(column)
+})
 
-let inputNombre = prompt("Ingrese nombre")
-let inputApellido = prompt("Ingrese apellido")
-let inputPersona = new Personas(inputNombre, inputApellido) 
-arrayPersonas.push(inputPersona)
-
-}
-
-let salida = ""
-
-while(salida !== "salir"){
-    cargaDeDatos();
-    salida = prompt("Escriba salir si desea dejar de agregar").toLowerCase()   
-}
-
-console.log(arrayPersonas)
-
-let inputFilter = prompt("Ingrese persona a buscar")
-let filterPersona = arrayPersonas.filter(filterPersona => filterPersona.nombre === inputFilter);
-
-alert("Se muestra por consola el resultado")
-console.log(filterPersona)
+// ==== EVENTO GENERALES EN MOUSE ====
 
 
-
-
-let eliminarPersona = prompt(`Desea eliminar a ${inputFilter} escriba SI`).toLowerCase()
-    if(eliminarPersona === "si"){
-      arrayPersonas.pop(inputFilter)
-    }
-
-console.log(arrayPersonas,"array nuevo")
-
+// ==== EVENTOS GENERALES EN TECLADO ====

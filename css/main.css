@@ -20,23 +20,23 @@ h2 {
   text-align: center;
 }
 
-.divContenedor {
-  background-color: #8262A3;
-  width: 30%;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 5px auto;
-}
-.divContenedor div {
-  margin: 10px 5px;
-  padding: 5px;
-  background-color: #C59CF0;
-  font-weight: bold;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-}
+/* .divContenedor{
+    background-color: #8262A3;
+    width: 30%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px auto;
+    div{
+        margin: 10px 5px;
+        padding: 5px;
+        background-color: #C59CF0;
+        font-weight: bold;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
 
+    }
+} */
 .footer__copyright {
   width: 100%;
   text-align: center;
@@ -45,6 +45,34 @@ h2 {
 .footer__copyright p {
   font-size: 1rem;
   word-spacing: 2px;
+}
+
+.grid {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  border-style: solid;
+}
+.grid div {
+  width: 20px;
+  height: 20px;
+}
+
+.snake {
+  background-color: blue;
+  border-radius: 30px;
+}
+
+.apple {
+  background-color: purple;
+  border-radius: 30px;
+}
+
+.score {
+  color: #43525d;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

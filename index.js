@@ -60,6 +60,7 @@ function inicializarElementos(){
     inputApellido = document.getElementById("inputApellido")
     inputTelefono = document.getElementById("inputTelefono")
     inputEmail = document.getElementById("inputEmail")
+    contenedorUsuarios = document.getElementById("contenedorUsuarios")
 }
 
 function inicializarEventos(){
@@ -67,11 +68,11 @@ function inicializarEventos(){
 }
 
 function validarFormulario(event){
-    event.preventDefault()
-    let inputNombre = inputNombre.value
-    let inputApellido = inputApellido.value
-    let inputTelefono = parseInt(inputTelefono.value)
-    let inputEmail = inputEmail.value
+     event.preventDefault()
+     inputNombre = inputNombre.value
+     inputApellido = inputApellido.value
+     inputTelefono = parseInt(inputTelefono.value)
+     inputEmail = inputEmail.value
 
     let usuario = new Usuario(
         inputNombre, 
@@ -81,21 +82,55 @@ function validarFormulario(event){
     )
 
     listaUsuarios.push(usuario)
-
+    formulario.reset()
     console.log(listaUsuarios)
+    mostrarUsuarios()
 }
 
-// function main(){
-//     inicializarElementos()
-//     inicializarEventos()
-//     validarFormulario()
-// }
+function mostrarUsuarios(){
+    contenedorUsuarios.innerHTML = ""
+    listaUsuarios.forEach((persona) =>{
+        let divUser = document.createElement("div")
+        divUser.className = "col-md-4 mt-3"
+        divUser.id = `user-${persona.apellido}-${persona.nombre}`
+        divUser.innerHTML = `
+    <div class="card">
+        <div class="card-body">
+             <p class="card-text">
+                ${persona.nombre} ${persona.apellido}
+             </p>
+        </div>
+        <div class="card-body">
+             <p class="card-text">
+                 Telefono: ${persona.telefono}
+            </p>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Email: ${persona.email}
+            </p>
+        </div>
+    </div>
+    <div class="card-footer">
+            <button class="btn btn-danger">Eliminar</button>
+        </div>
+    
+`
+contenedorUsuarios.append(divUser)
 
-// main()
+    })
+}
 
-inicializarElementos()
-inicializarEventos()
-validarFormulario()
+
+function main(){
+    inicializarElementos()
+    inicializarEventos()
+    validarFormulario()
+}
+
+main()
+
+
 
 
 

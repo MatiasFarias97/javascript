@@ -41,7 +41,7 @@ h2{
     }
 } */
 
-.contenedorPersonas{
+.contenedorForm{
     display: flex;
     margin: 10px auto;
     flex-direction: column;
@@ -57,6 +57,19 @@ h2{
         cursor: pointer;
     }
     
+}
+
+.contenedorPersonas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    p{
+        font-weight: bold;
+    }
+    button{
+        margin: 2px auto;
+    }
 }
 
 .footer__copyright {

@@ -2,6 +2,10 @@
 body {
   background-color: #F0E2A9;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 h1, h2 {
@@ -20,50 +24,63 @@ h2 {
   text-align: center;
 }
 
-/* .divContenedor{
-    background-color: #8262A3;
-    width: 30%;
-    padding: 10px;
-    border-radius: 10px;
-    margin: 5px auto;
-    div{
-        margin: 10px 5px;
-        padding: 5px;
-        background-color: #C59CF0;
-        font-weight: bold;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
+.hidden {
+  color: transparent;
+}
 
-    }
-} */
-.contenedorForm {
-  display: flex;
-  margin: 10px auto;
-  flex-direction: column;
-  align-items: center;
-  width: 70%;
+.divOpciones {
+  background-color: #8262A3;
+  width: 30%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px auto;
 }
-.contenedorForm input {
-  margin: 2px;
-  width: 100%;
-}
-.contenedorForm button {
-  margin: 10px auto;
+.divOpciones div {
+  margin: 10px 5px;
+  padding: 5px;
+  background-color: #C59CF0;
+  font-weight: bold;
+  border-radius: 5px;
+  color: white;
   cursor: pointer;
 }
 
-.contenedorPersonas {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px auto;
+#wordContainer {
+  margin-top: 20px;
 }
-.contenedorPersonas p {
+
+.letter {
+  margin: 0 7px;
+  position: relative;
+  text-align: center;
+}
+.letter:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  min-width: 12px;
+  background-color: black;
+}
+
+#startButton {
+  width: 300px;
+  padding: 10px;
+  font-weight: 600px;
+  font-size: 20px;
+  margin: 20px 10px;
+}
+
+.containerUsedLetters {
+  background-color: #C59CF0;
+  border-radius: 5px solid black;
+}
+.containerUsedLetters p {
   font-weight: bold;
-}
-.contenedorPersonas button {
-  margin: 2px auto;
+  font-size: 20px;
+  margin: 5px;
 }
 
 .footer__copyright {
@@ -77,8 +94,8 @@ h2 {
 }
 
 .grid {
-  width: 400px;
-  height: 400px;
+  width: 200px;
+  height: 200px;
   display: flex;
   flex-wrap: wrap;
   border-style: solid;
@@ -90,12 +107,10 @@ h2 {
 
 .snake {
   background-color: blue;
-  border-radius: 30px;
 }
 
 .apple {
   background-color: purple;
-  border-radius: 30px;
 }
 
 .score {

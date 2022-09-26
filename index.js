@@ -1,149 +1,143 @@
+const WORDS = ["Carne", "Martillo", "Lavadora", "Sucio", "Cangrejo", "Perro", "Gato", "Espada"]
 
-// const contenedorPersonas = document.getElementById("contenedorPersonas")
+const wordContainer = document.getElementById('wordContainer');
+const startButton = document.getElementById('startButton');
+const usedLettersElement = document.getElementById('usedLetters');
 
+let canvas = document.getElementById('canvas');
+let ctx = canvas.getContext('2d');
+ctx.canvas.width  = 0;
+ctx.canvas.height = 0;
 
-// listaPersonas.forEach((persona) =>{
-    //     let column = document.createElement("div")
-    //     column.className = "col-md-4 mt-3"
-    // column.id = "columna" + producto.id;
-    // column.id = `columna-${persona.id}`
-    // column.innerHTML = `
-    // <div class="card text-white bg-dark mb-3 mx-2"> 
-    //     <div> 
-    //         <p class="card-title p-1"> ${persona.nombre} ${persona.apellido}</p>
-    //     </div>
-    
-    // </div>
-    // `
-    // contenedorPersonas.append(column)
-    // })
-    
-    // ==== EVENTO GENERALES EN MOUSE ====
-    
-    
-    // ==== EVENTOS GENERALES EN TECLADO ====
-    
+const bodyParts = [
+    [4,2,1,1],
+    [4,3,1,2],
+    [3,5,1,1],
+    [5,5,1,1],
+    [3,3,1,1],
+    [5,3,1,1]
+];
 
-    // ==== EVENTO SUBMIT ====
-    // let miFormulario = document.getElementById("formulario")
-    
-    // miFormulario.onsubmit = (event) => validarFormulario(event);
-    
-    // function validarFormulario(event){
-    //     event.preventDefault(),
-    //     console.log(event),
-    //     console.log("formulario enviado")
-    // }
-    
-let formulario 
-let inputNombre
-let inputApellido
-let inputTelefono
-let inputEmail
-    
-let contenedorUsuarios
+let selectedWord;
+let usedLetters;
+let mistakes;
+let hits;
 
-let listaUsuarios = []
-    
-class Usuario {
-    constructor(nombre, apellido, telefono, email) {
-        this.nombre = nombre
-        this.apellido = apellido
-        this.telefono = telefono
-        this.email = email
+const addLetter = (letter) => {
+    const letterElement = document.createElement('span')
+    letterElement.innerHTML = letter
+    usedLettersElement.appendChild(letterElement)
+
+}
+
+const addBodyPart = (bodyPart) => {
+    ctx.fillStyle = '#fff'
+    ctx.fillRect(...bodyPart)
+}
+
+const wrongLetter = () => {
+    addBodyPart(bodyParts[mistakes])
+    mistakes++
+    if(mistakes === bodyParts.length) endGame()
+}
+
+const endGame = () => {
+    document.removeEventListener('keydown', letterEvent)
+    startButton.style.display = 'block'
+}
+
+const correctLetter = (letter) => {
+    const { children } = wordContainer
+    for(let i = 0; i < children.length; i++){
+        if(children[i].innerHTML === letter){
+            children[i].classList.toggle('hidden')
+            hits++
+        }
+    }
+    if(hits === selectedWord.length) endGame()
+}
+
+const letterInput = (letter) => {
+    if(selectedWord.includes(letter)){
+        correctLetter(letter)
+    }else {
+        wrongLetter()
+    }
+    addLetter(letter).toUpperCase()
+    usedLetters.push(letter)
+}
+
+const  letterEvent = (event) => {
+    let newLetter = (event).key.toUpperCase()
+    if(newLetter.match(/^[a-zñ]$/i) && !usedLetters.includes(newLetter)){
+        letterInput(newLetter)
+
     }
 }
 
-function inicializarElementos(){
-    formulario = document.getElementById("formulario")
-    inputNombre = document.getElementById("inputNombre")
-    inputApellido = document.getElementById("inputApellido")
-    inputTelefono = document.getElementById("inputTelefono")
-    inputEmail = document.getElementById("inputEmail")
-    contenedorUsuarios = document.getElementById("contenedorUsuarios")
+const drawWord = () => {
+    selectedWord.forEach(letter => {
+        const letterElement = document.createElement('span')
+        letterElement.innerHTML = letter
+        letterElement.classList.add('letter')
+        letterElement.classList.add('hidden')
+        wordContainer.appendChild(letterElement)
+        
+    });
 }
 
-function inicializarEventos(){
-    formulario.onsubmit = (event) => validarFormulario (event)
+const selectRandomWord = () => {
+    let word = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase()
+    selectedWord = word.split('')
 }
 
-function validarFormulario(event){
-     event.preventDefault()
-     inputNombre = inputNombre.value
-     inputApellido = inputApellido.value
-     inputTelefono = parseInt(inputTelefono.value)
-     inputEmail = inputEmail.value
-
-    let usuario = new Usuario(
-        inputNombre, 
-        inputApellido, 
-        inputTelefono, 
-        inputEmail
-    )
-
-    listaUsuarios.push(usuario)
-    formulario.reset()
-    console.log(listaUsuarios)
-    mostrarUsuarios()
+const drawHangMan = () => {
+    ctx.canvas.width = 120
+    ctx.canvas.height = 160
+    ctx.scale(20,20)
+    ctx.clearRect(0,0, canvas.width, canvas.heigth)
+    ctx.fillStyle = '#d95d39'
+    ctx.fillRect(0, 7, 4, 1)
+    ctx.fillRect(1, 0, 1, 8)
+    ctx.fillRect(2, 0, 3, 1)
+    ctx.fillRect(4, 1, 1, 1)
 }
 
-function mostrarUsuarios(){
-    contenedorUsuarios.innerHTML = ""
-    listaUsuarios.forEach((persona) =>{
-        let divUser = document.createElement("div")
-        divUser.className = "col-md-4 mt-3"
-        divUser.id = `user-${persona.apellido}-${persona.nombre}`
-        divUser.innerHTML = `
-    <div class="card">
-        <div class="card-body">
-             <p class="card-text">
-                ${persona.nombre} ${persona.apellido}
-             </p>
-        </div>
-        <div class="card-body">
-             <p class="card-text">
-                 Telefono: ${persona.telefono}
-            </p>
-        </div>
-        <div class="card-body">
-            <p class="card-text">
-                Email: ${persona.email}
-            </p>
-        </div>
-    </div>
-    <div class="card-footer">
-            <button class="btn btn-danger">Eliminar</button>
-        </div>
-    
-`
-contenedorUsuarios.append(divUser)
+const startGame = () => {
+    usedLetters = []
+    mistakes = 0
+    hits = 0
+    wordContainer.innerHTML = ""
+    usedLettersElement.innerHTML = ""
+    startButton.style.display = "none"
+    drawHangMan()
+    obtenerWordStorage()
+    selectRandomWord()
+    wordStorage()
+    drawWord()
+    document.addEventListener('keydown', letterEvent)
+    letterEvent()
+    correctLetter()
+    letterInput()
+    endGame()
+}
 
-    })
+const wordStorage = () => {
+
+    let wordJSON = JSON.stringify(selectedWord)
+    localStorage.setItem("word", wordJSON)
+
+}
+
+const obtenerWordStorage = () => {
+    let wordJSON = localStorage.getItem ("word")
+
+    if(wordJSON){
+        word = JSON.parse(wordJSON)
+        selectedWord = word
+    }
+    console.log(wordJSON)
 }
 
 
-function main(){
-    inicializarElementos()
-    inicializarEventos()
-    validarFormulario()
-}
-
-main()
-
-
-
-
-
-// let usuario = new crearUsuario(
-//     nombre = document.getElementById(nombre),
-//     apellido = document.getElementById(apellido),
-//     telefono = document.getElementById(telefono),
-//     email = document.getElementById(email)
-
-// )
-
-// listaUsuarios.push(usuario)
-
-// console.log(usuario)
-
-// console.log(listaUsuarios,"array")
+startButton.addEventListener('click', startGame)

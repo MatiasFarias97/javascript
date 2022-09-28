@@ -1,4 +1,4 @@
-const WORDS = ["Carne", "Martillo", "Lavadora", "Sucio", "Cangrejo", "Perro", "Gato", "Espada"]
+const WORDS = ["Escuela", "Martillo", "Lavadora", "Mariposa", "Cangrejo", "Country", "Mandarina", "Espada", "Computadora", "Objeto", "Asteroide", "Nebulosa"]
 
 const wordContainer = document.getElementById('wordContainer');
 const startButton = document.getElementById('startButton');
@@ -44,6 +44,7 @@ const wrongLetter = () => {
 const endGame = () => {
     document.removeEventListener('keydown', letterEvent)
     startButton.style.display = 'block'
+    localStorage.removeItem("word")
 }
 
 const correctLetter = (letter) => {
@@ -87,32 +88,23 @@ const drawWord = () => {
 }
 
 const selectRandomWord = () => {
-    let word = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase()
-
-    console.log(selectedWord)
-
-    let wordJSON = JSON.stringify(word)
-    localStorage.setItem("word", wordJSON)
-    
+    let word = 0;
+    let wordJSON = 0;
 
     wordJSON = localStorage.getItem("word")
     let probando = JSON.parse(wordJSON)
 
-    if(probando != word){
-        selectedWord = probando.split('')
-    }else{
+    if(probando == null){
+
+        word = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase()
         selectedWord = word.split('')
+        console.log(selectedWord)
+        wordJSON = JSON.stringify(word)
+        localStorage.setItem("word", wordJSON)
+
+    }else{
+        selectedWord = probando.split('')
     }
-
-
-
-
-    // let word = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase()
-    // selectedWord = word.split('')
-    // let wordJSON = JSON.stringify(selectedWord)
-    // localStorage.setItem("word", wordJSON)
-
-    // console.log(selectedWord)
 }
 
 const drawHangMan = () => {
@@ -135,9 +127,7 @@ const startGame = () => {
     usedLettersElement.innerHTML = ""
     startButton.style.display = "none"
     drawHangMan()
-    // obtenerWordStorage()
     selectRandomWord()
-    // wordStorage()
     drawWord()
     document.addEventListener('keydown', letterEvent)
     letterEvent()
@@ -145,28 +135,6 @@ const startGame = () => {
     letterInput()
     endGame()
 }
-
-
-// const wordStorage = () => {
-
-//     let wordJSON = JSON.stringify(selectedWord)
-//     localStorage.setItem("word", wordJSON)
-
-// }
-
-
-// const obtenerWordStorage = () => {
-//     let wordJSON = localStorage.getItem("word")
-
-//     if(wordJSON){
-//         word = JSON.parse(wordJSON)
-//         selectedWord = word
-//     }
-    
-// }
-
-
-
 
 
 startButton.addEventListener('click', startGame)

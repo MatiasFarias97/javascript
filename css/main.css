@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,300&display=swap");
 body {
-  background-color: #F0E2A9;
+  background-image: radial-gradient(circle at 50% -20.71%, #ffaf95 0, #ffa39a 10%, #ff969d 20%, #ff899c 30%, #f87b98 40%, #d86c8f 50%, #b95e84 60%, #9d537a 70%, #864a71 80%, #724369 90%, #613d62 100%);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,7 @@ body {
 h1, h2 {
   color: #43525d;
   font-family: "Ubuntu", sans-serif;
+  font-weight: bold;
 }
 
 h1 {
@@ -26,23 +27,6 @@ h2 {
 
 .hidden {
   color: transparent;
-}
-
-.divOpciones {
-  background-color: #8262A3;
-  width: 30%;
-  padding: 10px;
-  border-radius: 10px;
-  margin: 5px auto;
-}
-.divOpciones div {
-  margin: 10px 5px;
-  padding: 5px;
-  background-color: #C59CF0;
-  font-weight: bold;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
 }
 
 #wordContainer {
@@ -75,7 +59,7 @@ h2 {
 
 .containerUsedLetters {
   background-color: #C59CF0;
-  border-radius: 5px solid black;
+  border-radius: 10px;
 }
 .containerUsedLetters p {
   font-weight: bold;
@@ -91,32 +75,6 @@ h2 {
 .footer__copyright p {
   font-size: 1rem;
   word-spacing: 2px;
-}
-
-.grid {
-  width: 200px;
-  height: 200px;
-  display: flex;
-  flex-wrap: wrap;
-  border-style: solid;
-}
-.grid div {
-  width: 20px;
-  height: 20px;
-}
-
-.snake {
-  background-color: blue;
-}
-
-.apple {
-  background-color: purple;
-}
-
-.score {
-  color: #43525d;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

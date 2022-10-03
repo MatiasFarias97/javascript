@@ -23,6 +23,22 @@ let usedLetters;
 let mistakes;
 let hits;
 
+function swalGanador (){
+    Swal.fire({
+        title:'Ganaste :)',
+        text:'Espero que te haya gustado',
+        icon: 'success'
+    })
+}
+
+function swalPerdedor (){
+    Swal.fire({
+        title:'Perdiste :(',
+        text:'Vuelve a intentarlo',
+        icon: 'error'
+    })
+}
+
 const addLetter = (letter) => {
     const letterElement = document.createElement('span')
     letterElement.innerHTML = letter
@@ -38,13 +54,18 @@ const addBodyPart = (bodyPart) => {
 const wrongLetter = () => {
     addBodyPart(bodyParts[mistakes])
     mistakes++
-    if(mistakes === bodyParts.length) endGame()
+    if(mistakes === bodyParts.length){
+        endGame()
+        swalPerdedor()
+    }
 }
+
 
 const endGame = () => {
     document.removeEventListener('keydown', letterEvent)
     startButton.style.display = 'block'
     localStorage.removeItem("word")
+    
 }
 
 const correctLetter = (letter) => {
@@ -55,15 +76,15 @@ const correctLetter = (letter) => {
             hits++
         }
     }
-    if(hits === selectedWord.length) endGame()
+    if(hits === selectedWord.length){
+        endGame()
+        swalGanador()
+    } 
 }
 
 const letterInput = (letter) => {
-    if(selectedWord.includes(letter)){
-        correctLetter(letter)
-    }else {
-        wrongLetter()
-    }
+    (selectedWord.includes(letter)) ? correctLetter(letter) : wrongLetter()
+
     addLetter(letter).toUpperCase()
     usedLetters.push(letter)
 }
@@ -72,7 +93,6 @@ const  letterEvent = (event) => {
     let newLetter = (event).key.toUpperCase()
     if(newLetter.match(/^[a-zñ]$/i) && !usedLetters.includes(newLetter)){
         letterInput(newLetter)
-
     }
 }
 
@@ -92,18 +112,17 @@ const selectRandomWord = () => {
     let wordJSON = 0;
 
     wordJSON = localStorage.getItem("word")
-    let probando = JSON.parse(wordJSON)
+    let getWord = JSON.parse(wordJSON)
 
-    if(probando == null){
+    if(getWord == null){
 
         word = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase()
         selectedWord = word.split('')
-        console.log(selectedWord)
         wordJSON = JSON.stringify(word)
         localStorage.setItem("word", wordJSON)
 
     }else{
-        selectedWord = probando.split('')
+        selectedWord = getWord.split('')
     }
 }
 

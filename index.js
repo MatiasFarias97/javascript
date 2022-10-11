@@ -3,6 +3,9 @@ const WORDS = ["Escuela", "Martillo", "Lavadora", "Mariposa", "Cangrejo", "Count
 const wordContainer = document.getElementById('wordContainer');
 const startButton = document.getElementById('startButton');
 const usedLettersElement = document.getElementById('usedLetters');
+// const nombreJ1 = document.getElementById('nombreJ1')
+// const nombreJ2 = document.getElementById('nombreJ2')
+
 
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
@@ -85,7 +88,7 @@ const correctLetter = (letter) => {
 const letterInput = (letter) => {
     (selectedWord.includes(letter)) ? correctLetter(letter) : wrongLetter()
 
-    addLetter(letter).toUpperCase()
+    addLetter(letter)
     usedLetters.push(letter)
 }
 
@@ -157,3 +160,4 @@ const startGame = () => {
 
 
 startButton.addEventListener('click', startGame)
+

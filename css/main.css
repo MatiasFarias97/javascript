@@ -8,21 +8,56 @@ body {
   align-items: center;
 }
 
-h1, h2 {
-  color: #43525d;
+h1 {
+  color: rgb(73, 69, 69);
+}
+
+h2, p {
+  color: rgb(214, 208, 208);
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
 }
 
 h1 {
   text-align: center;
-  font-size: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 5px;
 }
 
 h2 {
   padding-left: 10px;
   font-size: 1.5rem;
   text-align: center;
+}
+
+.containerInstrucciones {
+  border: solid rgb(73, 69, 69);
+  border-radius: 5px;
+  margin: 10px;
+  padding-top: 10px;
+}
+
+.instruccionesText {
+  text-align: center;
+}
+
+.containerBtns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnSolitario {
+  margin: 5px;
+  background-color: grey;
+  font-weight: bold;
+}
+
+.btnMultiplayer {
+  background-color: grey;
+  font-weight: bold;
 }
 
 .hidden {
@@ -67,14 +102,20 @@ h2 {
   margin: 5px;
 }
 
+.ocultarModal {
+  display: none;
+}
+
 .footer__copyright {
   width: 100%;
   text-align: center;
   color: #43525d;
+  margin: 20px auto;
 }
 .footer__copyright p {
   font-size: 1rem;
   word-spacing: 2px;
+  color: rgb(214, 208, 208);
 }
 
 /*# sourceMappingURL=main.css.map */

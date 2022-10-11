@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="boostrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Juego ahorcado</title>
+</head>
+<body>
+    <h1>AHORCADO MULTIPLAYER</h1>
+    <button class="btn btn-success" id="btnAddPlayer" onclick="modalOpen()">
+      Agregar Jugadores
+    </button>
+    <div
+    class="modal fade"
+    id="modalAddPlayer"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Jugadores Ahorcados</h5>
+          <button
+            type="button"
+            class="btn-close btnCerrarModalAddPlayer"
+            aria-label="Close"
+          ></button>
+        </div>
+        <form id="formularioAddPlayer">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label" >Jugador 1</label>
+              <input type="text" class="form-control" id="inputNombreJ1" required 
+              placeholder="Ingrese nombre"/>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" >Jugador 2</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputNombreJ2"
+                required
+                placeholder="Ingrese nombre"
+              />
+            </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary btnCerrarModalAddPlayer"
+            >
+              Cerrar
+            </button>
+            <button type="submit" class="btn btn-primary" onclick="addName()" id="btnSubmit">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div> 
+
+    <!-- <form action="" id="form">
+        <label for="nombre1">NombreJ1</label>
+        <input type="text" id="nombreJ1">
+
+        <label for="nombre2">NombreJ2</label>
+        <input type="text" id="nombreJ2">
+
+        <button rype="button" id="inputBtn">Enviar</button>
+
+    </form>  -->
+
+
+    <script src="boostrap/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="multiplayer.js"></script>
+</body>
+<footer>
+    <div class="footer__copyright">
+        <p>Copyright &copy;2022. Designed by Matias Farias.</p>
+      </div>
+</footer>
+</html>

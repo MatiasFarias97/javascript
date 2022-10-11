@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="boostrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <title>AHORCADO TEST</title>
-</head>
-<body>
-    <h1>AHORCADO TEST</h1>
-    <button id="startButton" class="btn btn-primary">Comenzar</button>
-    <div>
-        <canvas id="canvas"></canvas>
-        <div class="containerUsedLetters">
-            <p>Letras usadas</p>
-            <div id="usedLetters"> </div>
-        </div>
-    </div>
-    <div id="wordContainer"></div>
-    
 
-    <script src="boostrap/js/bootstrap.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="index.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="boostrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>AHORCADO TEST</title>
+</head>
+
+<body>
+  <h1>AHORCADO TEST</h1>
+  <div class="containerInstrucciones">
+    <h2>INSTRUCCIONES</h2>
+    <p class="instruccionesText">El juego consiste en adivinar la palabra oculta. El jugador dice una letra y si acierta
+      se muestra en la posicion que ocupa en la palabra, si la letra es incorrecta se empiezan a dibujar las partes del
+      muñeco. En el modo multijugador cada jugador se tiene que registrar. El resultado solo muestra las rondas ganadas
+      por cada jugador. El primero que llega a 5 puntos es el ganador.</p>
+  </div>
+  <div class="containerBtns">
+    <div>
+      <a href="solitario.html" class="btn btn-info btnSolitario">Modo solitarior</a>
+    </div>
+    <div>
+      <a href="multiplayer.html" class="btn btn-info btnMultiplayer">Multiplayer</a>
+    </div>
+  </div>
+  <div>
+
+  </div>
+  <script src="boostrap/js/bootstrap.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="index.js"></script>
 </body>
 <footer>
-    <div class="footer__copyright">
-        <p>Copyright &copy;2022. Designed by Matias Farias.</p>
-      </div>
+  <div class="footer__copyright">
+    <p>Copyright &copy;2022. Designed by Matias Farias.</p>
+  </div>
 </footer>
+
 </html>

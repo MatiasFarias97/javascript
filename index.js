@@ -1,10 +1,8 @@
-const WORDS = ["Escuela", "Martillo", "Lavadora", "Mariposa", "Cangrejo", "Country", "Mandarina", "Espada", "Computadora", "Objeto", "Asteroide", "Nebulosa"]
-
+const WORDS = []
+const WORDS2 = ["martillo","espada"]
 const wordContainer = document.getElementById('wordContainer');
 const startButton = document.getElementById('startButton');
 const usedLettersElement = document.getElementById('usedLetters');
-// const nombreJ1 = document.getElementById('nombreJ1')
-// const nombreJ2 = document.getElementById('nombreJ2')
 
 
 let canvas = document.getElementById('canvas');
@@ -25,6 +23,15 @@ let selectedWord;
 let usedLetters;
 let mistakes;
 let hits;
+
+
+fetch ('https://6345db9839ca915a6909468c.mockapi.io/ahorcado/words')
+.then((response) => response.json())
+.then((data) =>{
+  WORDS.push(data.map(probando => probando.word))
+  console.log(WORDS,"array")
+})
+.catch((error) => console.log(error))
 
 function swalGanador (){
     Swal.fire({
@@ -106,6 +113,12 @@ const drawWord = () => {
         letterElement.classList.add('letter')
         letterElement.classList.add('hidden')
         wordContainer.appendChild(letterElement)
+
+        // let letterJson = 0
+
+        // letterJson = localStorage.getItem("letter")
+
+
         
     });
 }
@@ -118,8 +131,9 @@ const selectRandomWord = () => {
     let getWord = JSON.parse(wordJSON)
 
     if(getWord == null){
-
-        word = WORDS[Math.floor(Math.random() * WORDS.length)].toUpperCase()
+        console.log(WORDS,"hola")
+        console.log(WORDS2,"nuevo");
+        word = WORDS[0][Math.floor(Math.random() * WORDS.length)].toUpperCase()
         selectedWord = word.split('')
         wordJSON = JSON.stringify(word)
         localStorage.setItem("word", wordJSON)
@@ -156,6 +170,7 @@ const startGame = () => {
     correctLetter()
     letterInput()
     endGame()
+    console.log(WORDS)
 }
 
 

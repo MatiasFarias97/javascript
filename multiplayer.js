@@ -92,34 +92,56 @@ let btnSubmit
 let showJ1
 
 
-function inicializarElementos(){
-  modal = new bootstrap.Modal(modalAddPlayer);
-  inputNombreJ1 = document.getElementById('inputNombreJ1')
-  inputNombreJ2 = document.getElementById('inputNombreJ2')
-  showJ1 = document.getElementById('showJ1')
-  btnSubmit = document.getElementById('btnSubmit')
-  btnSubmit.onsubmit = (event) => prevent(event)
-}
+// function inicializarElementos(){
+//   modal = new bootstrap.Modal(modalAddPlayer);
+//   inputNombreJ1 = document.getElementById('inputNombreJ1')
+//   inputNombreJ2 = document.getElementById('inputNombreJ2')
+//   showJ1 = document.getElementById('showJ1')
+//   btnSubmit = document.getElementById('btnSubmit')
+//   btnSubmit.onsubmit = (event) => prevent(event)
+// }
 
 
-function modalOpen() {
-  modal.show()
-}
+// function modalOpen() {
+//   modal.show()
+// }
 
-inicializarElementos()
+// inicializarElementos()
 
-function addName(){
+// function addName(){
 
-  inputNombreJ1 = inputNombreJ1.value
-  inputNombreJ2 = inputNombreJ2.value
+//   inputNombreJ1 = inputNombreJ1.value
+//   inputNombreJ2 = inputNombreJ2.value
 
-  console.log(inputNombreJ1)
-  console.log(inputNombreJ2)
+//   console.log(inputNombreJ1)
+//   console.log(inputNombreJ2)
   
-}
+// }
 
-function prevent(e){
-  e.preventDefault()  
-}
+// function prevent(e){
+//   e.preventDefault()  
+// }
+
+// const WORDS = []
+
+// fetch ('https://6345db9839ca915a6909468c.mockapi.io/ahorcado/words')
+// .then((response) => response.json())
+// .then((data) =>{
+//   WORDS.push(data.map(probando => probando.word))
+//   console.log(WORDS,"array")
+// })
+// .catch((error) => console.log(error))
+
+
+
+
+
+
+
+
+
+
+
+
 
 

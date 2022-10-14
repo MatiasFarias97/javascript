@@ -133,7 +133,7 @@ const selectRandomWord = () => {
     if(getWord == null){
         console.log(WORDS,"hola")
         console.log(WORDS2,"nuevo");
-        word = WORDS[0][Math.floor(Math.random() * WORDS.length)].toUpperCase()
+        word = WORDS[0][Math.floor(Math.random() * WORDS[0].length)].toUpperCase()
         selectedWord = word.split('')
         wordJSON = JSON.stringify(word)
         localStorage.setItem("word", wordJSON)

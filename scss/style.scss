@@ -1,8 +1,10 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&display=swap');
 
 body{
-   background-color: rgb(255, 255, 255);
+    background-image: url(/bg_ahorcado.jpg);
+    background-position: center;
+    background-size: cover;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -10,22 +12,25 @@ body{
     align-items: center;
 }
 
+
 h1{
-    color: rgb(73, 69, 69);
+    color: rgb(0, 0, 0);
+    font-family: 'Caveat', cursive;
 }
 
 h2,p{
-    color: rgb(214, 208, 208);
-    font-family: 'Ubuntu', sans-serif;
+    color: rgb(0, 0, 0);
+    font-family: 'Caveat', cursive;
     font-weight: bold;
 
 }
 
 h1{
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-top: 5px;
+    
 }
 
 h2{
@@ -62,13 +67,9 @@ h2{
 }
 
 .btnMultiplayer{
-    background-color: grey;
     font-weight: bold;
 }
 
-.hidden{
-    color: transparent;
-}
 
 #wordContainer{
     margin-top: 20px;
@@ -78,6 +79,7 @@ h2{
     margin: 0 7px;
     position: relative;
     text-align: center;
+    font-family: 'Caveat', cursive;
     &:after {
         content: '';
         display: block;
@@ -101,6 +103,7 @@ h2{
 .containerUsedLetters{
     background-color: #C59CF0;
     border-radius: 10px;
+    font-family: 'Caveat', cursive;
     p{
         font-weight: bold;
         font-size: 20px;
@@ -121,8 +124,22 @@ h2{
     p {
         font-size: 1rem;
         word-spacing: 2px;
-        color: rgb(214, 208, 208);
+        color: rgb(0, 0, 0);
     }
 }
 
+.botones{
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    background-color: #003cff5e;
+    border: solid black;
+}
+
+.containerBtn{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px auto;
+}
 

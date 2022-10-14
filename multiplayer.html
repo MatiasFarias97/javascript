@@ -6,75 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="boostrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="/ahorcado_logo.jpg">
     <title>Juego ahorcado</title>
 </head>
 <body>
+  <div class="bgH1">
     <h1>AHORCADO MULTIPLAYER</h1>
-    
-      <a href="index.html" class="btn btn-info">Volver</a>
-   
-    <button class="btn btn-success" id="btnAddPlayer" onclick="modalOpen()">
-      Agregar Jugadores
-    </button>
-    <div
-    class="modal fade"
-    id="modalAddPlayer"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Jugadores Ahorcados</h5>
-          <button
-            type="button"
-            class="btn-close btnCerrarModalAddPlayer"
-            aria-label="Close"
-          ></button>
-        </div>
-        <form id="formularioAddPlayer">
-          <div class="modal-body">
-            <div class="mb-3">
-              <label class="form-label" >Jugador 1</label>
-              <input type="text" class="form-control" id="inputNombreJ1" required 
-              placeholder="Ingrese nombre"/>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" >Jugador 2</label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputNombreJ2"
-                required
-                placeholder="Ingrese nombre"
-              />
-            </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary btnCerrarModalAddPlayer"
-            >
-              Cerrar
-            </button>
-            <button type="submit" class="btn btn-primary" onclick="addName()" id="btnSubmit">Guardar</button>
-          </div>
-        </form>
+  </div>
+     
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary botones" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Jugadores ahorcados
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar jugadores</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <form>
+        <div class="row mb-3">
+          <label for="" class="col-sm-2 col-form-label">Nombre jugador 1</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="nombreJ1">
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="" class="col-sm-2 col-form-label">Nombre jugador 2</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="nombreJ2">
+          </div>
+        </div>
+        <div class="containerBtn">
+          <a href="/index.html" class="btn btn-primary botones">Cancelar</a>
+          <button type="submit" class="btn btn-primary botones" onclick="getData()">Continuar</button>
+        </div>
+      </form>
     </div>
-  </div> 
-
-    <!-- <form action="" id="form">
-        <label for="nombre1">NombreJ1</label>
-        <input type="text" id="nombreJ1">
-
-        <label for="nombre2">NombreJ2</label>
-        <input type="text" id="nombreJ2">
-
-        <button rype="button" id="inputBtn">Enviar</button>
-
-    </form>  -->
-
-
+  </div>
+</div>
     <script src="boostrap/js/bootstrap.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="multiplayer.js"></script>

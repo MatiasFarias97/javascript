@@ -12,30 +12,62 @@
 </head>
 
 <body>
-  <div class="bgH1">
-    <h1>AHORCADO</h1>
-  </div>
+  <nav class="navbar navbar-light sticky-top navStyle">
+    <div class="container-fluid">
+      <a class="navbar-brand btnIndex" href="index.html">
+        Ahorcado
+      </a>
+    </div>
+  </nav>
   <div class="containerInstrucciones">
     <h2>INSTRUCCIONES</h2>
-    <p class="instruccionesText">El juego consiste en adivinar la palabra oculta. El jugador dice una letra y si acierta
+    <p class="instruccionesText">El juego consiste en adivinar la palabra oculta. El jugador presiona una letra y si acierta
       se muestra en la posicion que ocupa en la palabra, si la letra es incorrecta se empiezan a dibujar las partes del
-      muñeco. En el modo multijugador cada jugador se tiene que registrar. El resultado solo muestra las rondas ganadas
-      por cada jugador. El primero que llega a 5 puntos es el ganador.</p>
+      muñeco. En el modo multijugador cada jugador se tiene que registrar. El resultado solo muestra las rondas perdidas
+      por cada jugador. El primero que llega a 5 puntos es el perdedor.</p>
   </div>
   <div class="containerBtns">
     <div>
-      <a href="solitario.html" class="btn btn-secondary botones">Modo solitarior</a>
+      <a href="solitario.html" class="btn btn-secondary botones"> Solitario</a>
     </div>
-    <div>
-      <a href="multiplayer.html" class="btn btn-secondary botones">Multiplayer</a>
-    </div>
-  </div>
-  <div>
+    <!--  Button trigger modal -->
+    <button type="button" class="btn btn-primary botones" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Multiplayer
+    </button>
 
-  </div>
-  <script src="boostrap/js/bootstrap.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="index.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar jugadores</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form action="/multiplayer.html" onsubmit="return getData();" id="form" class="formModal">
+            <div class="row mb-3">
+              <label for="" class="col-sm-2 col-form-label">Jugador 1</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nombreJ1" placeholder="Ingrese nombre">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="" class="col-sm-2 col-form-label">Jugador 2</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nombreJ2" placeholder="Ingrese nombre">
+              </div>
+            </div>
+            <div class="containerBtn">
+              <a href="/index.html" class="btn btn-primary botones">Cancelar</a>
+              <button type="submit" class="btn btn-primary botones">Continuar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="boostrap/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="index.js"></script>
+    <script src="multiplayer.js"></script>
 </body>
 <footer>
   <div class="footer__copyright">

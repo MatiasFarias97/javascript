@@ -2,7 +2,7 @@
 body {
   background-image: url(/bg_ahorcado.jpg);
   background-position: center;
-  background-size: cover;
+  background-size: auto;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@ h1 {
   font-family: "Caveat", cursive;
 }
 
-h2, p {
+h2 {
   color: rgb(0, 0, 0);
   font-family: "Caveat", cursive;
   font-weight: bold;
@@ -34,6 +34,18 @@ h2 {
   text-align: center;
 }
 
+.navStyle {
+  background-color: rgba(0, 60, 255, 0.368627451);
+  width: 100%;
+  font-family: "Caveat", cursive;
+  font-weight: bold;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  border-radius: 10px black;
+}
+
 .containerInstrucciones {
   border: solid rgb(73, 69, 69);
   border-radius: 5px;
@@ -43,6 +55,10 @@ h2 {
 
 .instruccionesText {
   text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 10px;
 }
 
 .containerBtns {
@@ -50,6 +66,7 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 
 .btnSolitario {
@@ -71,6 +88,7 @@ h2 {
   position: relative;
   text-align: center;
   font-family: "Caveat", cursive;
+  font-weight: bold;
 }
 .letter:after {
   content: "";
@@ -81,6 +99,8 @@ h2 {
   height: 1px;
   min-width: 12px;
   background-color: black;
+  font-family: "Caveat", cursive;
+  font-weight: bold;
 }
 
 #startButton {
@@ -98,12 +118,10 @@ h2 {
 }
 .containerUsedLetters p {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 1.5rem;
   margin: 5px;
-}
-
-.ocultarModal {
-  display: none;
+  padding: 5px;
+  font-family: "Caveat", cursive;
 }
 
 .footer__copyright {
@@ -116,14 +134,23 @@ h2 {
   font-size: 1rem;
   word-spacing: 2px;
   color: rgb(0, 0, 0);
+  font-family: "Caveat", cursive;
 }
 
 .botones {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: rgb(0, 0, 0);
   background-color: rgba(0, 60, 255, 0.368627451);
   border: solid black;
+  margin: 4px;
+  font-family: "Caveat", cursive;
+}
+
+.btnIndex {
+  background-color: rgba(255, 108, 108, 0.4196078431);
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .containerBtn {
@@ -131,6 +158,40 @@ h2 {
   justify-content: space-around;
   align-items: center;
   margin: 10px auto;
+}
+
+.hidden {
+  color: transparent;
+}
+
+.formModal {
+  padding: 5px;
+  margin: 5px;
+}
+
+.containerPlayers {
+  border: solid 2px black;
+  width: 50%;
+  height: auto;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 5px;
+  margin: 10px 10px 20px 10px;
+}
+.containerPlayers .players {
+  margin: 5px auto;
+  border: solid 2px white;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
+  font-family: "Caveat", cursive;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 0px 5px 0px 5px;
 }
 
 /*# sourceMappingURL=main.css.map */

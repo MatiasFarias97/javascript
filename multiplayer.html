@@ -1,60 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="boostrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="shortcut icon" href="/ahorcado_logo.jpg">
-    <title>Juego ahorcado</title>
-</head>
-<body>
-  <div class="bgH1">
-    <h1>AHORCADO MULTIPLAYER</h1>
-  </div>
-     
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary botones" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Jugadores ahorcados
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar jugadores</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <form>
-        <div class="row mb-3">
-          <label for="" class="col-sm-2 col-form-label">Nombre jugador 1</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="nombreJ1">
-          </div>
-        </div>
-        <div class="row mb-3">
-          <label for="" class="col-sm-2 col-form-label">Nombre jugador 2</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="nombreJ2">
-          </div>
-        </div>
-        <div class="containerBtn">
-          <a href="/index.html" class="btn btn-primary botones">Cancelar</a>
-          <button type="submit" class="btn btn-primary botones" onclick="getData()">Continuar</button>
-        </div>
-      </form>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="boostrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="/ahorcado_logo.jpg">
+  <title>Juego ahorcado</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-light sticky-top navStyle">
+    <div class="container-fluid">
+      <a class="navbar-brand btnIndex" href="index.html">
+        Ahorcado
+      </a>
+    </div>
+  </nav>
+  <h1 class="bgH1">Multiplayer</h1>
+
+  <div class="containerPlayers">
+    <div id="jugador1">
+      <div id="mistakesJ1"></div>
+    </div>
+    <div id="jugador2">
+      <div id="mistakesJ2"></div>
     </div>
   </div>
-</div>
-    <script src="boostrap/js/bootstrap.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="multiplayer.js"></script>
+  
+  <button id="startButton" class="btn btn-primary botones" onclick="contadorClick()">Comenzar</button>
+    <div>
+        <canvas id="canvas"></canvas>
+        <div class="containerUsedLetters">
+            <p>Letras usadas</p>
+            <div id="usedLetters">
+               </div>
+        </div>
+    </div>
+    <div id="wordContainer">
+
+    </div>
+
+    <div>
+      <p id="contador"></p>
+    </div>
+  <script src="boostrap/js/bootstrap.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/index.js"></script>
+  <script src="multiplayer.js"></script>
 </body>
 <footer>
-    <div class="footer__copyright">
-        <p>Copyright &copy;2022. Designed by Matias Farias.</p>
-      </div>
+  <div class="footer__copyright">
+    <p>Copyright &copy;2022. Designed by Matias Farias.</p>
+  </div>
 </footer>
+
 </html>

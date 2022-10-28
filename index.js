@@ -18,13 +18,14 @@ const bodyParts = [
     [5, 3, 1, 1]
 ];
 
+let round = 0;
+let erroresJ1 = 0
+let erroresJ2 = 0
 let selectedWord;
 let usedLetters;
 let mistakes;
-let erroresJ1 = 0
-let erroresJ2 = 0
 let hits;
-let round = 0;
+
 
 
 fetch('https://6345db9839ca915a6909468c.mockapi.io/ahorcado/words')
@@ -69,29 +70,35 @@ const wrongLetter = () => {
 
     addBodyPart(bodyParts[mistakes])
     mistakes++
+
+    // console.log(mistakes)
     
-    erroresPlayers()
-    // if(mistakes === 6  && (round % 2) == 1){
-    //     erroresJ1++
-    // }else if(mistakes === 6 && (round % 2) == 0){
-    //     erroresJ2++
-    // }
+    if(mistakes == 6 && (round % 2 != 0)){
+        erroresJ1++
+        showPlayers()
+    }else if(mistakes == 6 && (round % 2 == 0 )){
+        erroresJ2++    
+        showPlayers()
+    }
+
+    if(erroresJ1 == 3 && erroresJ2 == 3){
+        Swal.fire({
+            title: 'Los perdedores son' + ` ${nombreJ1} ${nombreJ2}`,
+            text: 'Espero que te haya gustado',
+            icon: 'success'
+        })
+    }else if(erroresJ2 == 3){
+        Swal.fire({
+            title: 'Ganaste' ` ${nombreJ1}`,
+            text: 'Espero que te haya gustado',
+            icon: 'success'
+        })
+    }
 
     if (mistakes === bodyParts.length) {
         endGame()
         swalPerdedor()
         
-    }
-
-}
-
-function erroresPlayers(){
-
-
-    if(mistakes == 6  && (round % 2) == 1){
-        erroresJ1++
-    }else if(mistakes == 6 && (round % 2) == 0){
-        erroresJ2++
     }
 
 }
@@ -141,10 +148,6 @@ const drawWord = () => {
         letterElement.classList.add('letter')
         letterElement.classList.add('hidden')
         wordContainer.appendChild(letterElement)
-
-        // let letterJson = 0
-
-        // letterJson = localStorage.getItem("letter")
 
     });
 }

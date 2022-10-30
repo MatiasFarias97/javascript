@@ -28,6 +28,7 @@ let hits;
 
 
 
+
 fetch('https://6345db9839ca915a6909468c.mockapi.io/ahorcado/words')
     .then((response) => response.json())
     .then((data) => {
@@ -64,32 +65,40 @@ const addBodyPart = (bodyPart) => {
 }
 
 
-
-
 const wrongLetter = () => {
+    const isPar = round % 2 == 0;    
 
     addBodyPart(bodyParts[mistakes])
     mistakes++
 
-    // console.log(mistakes)
-    
-    if(mistakes == 6 && (round % 2 != 0)){
+    if (mistakes == 6 && (!isPar)) {
         erroresJ1++
         showPlayers()
-    }else if(mistakes == 6 && (round % 2 == 0 )){
+    } else if (mistakes == 6 && (isPar)) {
         erroresJ2++    
         showPlayers()
     }
-
-    if(erroresJ1 == 3 && erroresJ2 == 3){
+    
+     if(erroresJ2 == 3) {
+        endGame()
         Swal.fire({
-            title: 'Los perdedores son' + ` ${nombreJ1} ${nombreJ2}`,
+            title: 'Ganaste' ` ${nombreJ1}`,
+            text: 'Espero que te haya gustado',
+            icon: 'success'
+            
+        })
+    } else if (erroresJ1 == 3){
+        endGame()
+        Swal.fire({
+            title: `Ganaste ${nombreJ2}`,
             text: 'Espero que te haya gustado',
             icon: 'success'
         })
-    }else if(erroresJ2 == 3){
+       
+    } else if (erroresJ1 == 3 && erroresJ2 == 3) {
+        endGame()
         Swal.fire({
-            title: 'Ganaste' ` ${nombreJ1}`,
+            title: 'Los perdedores son' + ` ${nombreJ1} ${nombreJ2}`,
             text: 'Espero que te haya gustado',
             icon: 'success'
         })
@@ -100,9 +109,7 @@ const wrongLetter = () => {
         swalPerdedor()
         
     }
-
 }
-
 
 const endGame = () => {
     document.removeEventListener('keydown', letterEvent)
@@ -198,7 +205,6 @@ const startGame = () => {
         correctLetter()
         letterInput()
         endGame()
-
     } 
     
     startButton.addEventListener('click', startGame)
